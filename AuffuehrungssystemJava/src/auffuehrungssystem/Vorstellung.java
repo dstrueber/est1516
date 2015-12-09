@@ -1,36 +1,48 @@
 package auffuehrungssystem;
-import java.util.ArrayList;
-import java.util.Collection;
 
 public class Vorstellung {
 
+	public static final String EXC_MSG_PLAETZE_BEREITS_GEBUCHT = "Preis wurde nicht gesetzt, da bereis Plätze gebucht wurden.";
+
+	public static final String EXC_MSG_PLATZANZAHL_UNTER_GEBUCHT = "Die Platzanzahl kann nicht unter die bereits gebuchte Platzanzahl gesenkt werden.";
+
+	public static final String EXC_MSG_MINDESTENS_EIN_PLATZ = "Parameter 'sitzeGesamt' hat illegalen Wert. Es muss mindestens ein Platz zur Verfügung stehen.";
+
 	private static final float PREIS_DEFAULT = 7.5f;
-	private static final float AUFSCHLAG_DEFAULT = 1.0f;
+	private static final int SITZE_GESAMT_DEFAULT = 200;
+	private static final int SITZE_BELEGT_DEFAULT = 0;
 
 	private String uhrzeit;
 	private float preis;
-	private float aufschlag;
+	private int sitzeGesamt, sitzeBelegt;
 	private Stueck stueck;
 	private Auffuehrungsort ort;
-	private Saal saal;
-	private Collection<Reservierung> reservierungen;
 
 	/**
 	 * @param s
 	 * @param ort
 	 * @param uhrzeit
 	 */
-	Vorstellung(Stueck s, Auffuehrungsort ort, String uhrzeit, Saal saal) {
+	Vorstellung(Stueck s, Auffuehrungsort ort, String uhrzeit) {
 		this.preis = PREIS_DEFAULT;
-		this.aufschlag = AUFSCHLAG_DEFAULT;
+		sitzeGesamt = SITZE_GESAMT_DEFAULT;
+		sitzeBelegt = SITZE_BELEGT_DEFAULT;
 		this.uhrzeit = uhrzeit;
 		this.ort = ort;
 		this.ort.addVorstellung(this);
 		this.stueck = s;
 		this.stueck.addVorstellung(this);
-		this.saal = saal;
-		this.reservierungen = new ArrayList<Reservierung>();
 	}// Vorstellung
+
+	/**
+	 * @param anzahl
+	 * @return true, falls die geforderten Sitze belegt werden konnten, sonst
+	 *         false
+	 */
+	public boolean belegeSitze(int anzahl) {
+		// TODO Zu implementieren
+		return false;
+	}// belegeSitze
 
 	/**
 	 * @return
@@ -51,7 +63,7 @@ public class Vorstellung {
 	 * @return
 	 */
 	public int getFreieSitze() {
-		throw new UnsupportedOperationException("Funktion derzeit nicht implementiert.");
+		return this.sitzeGesamt - this.sitzeBelegt;
 	}// getFreieSitze
 
 	/**
@@ -129,18 +141,20 @@ public class Vorstellung {
 	 *            the preis to set
 	 */
 	public final void setPreis(float preis) {
+		if (this.sitzeBelegt > 0)
+			System.err.println(EXC_MSG_PLAETZE_BEREITS_GEBUCHT);
 		this.preis = preis;
 	}// setPreis
 
 	/**
-	 * Setzt die Gesamtanzahl der in dieser Vorstellung zur Verfï¿½gung stehenden
-	 * Sitze. Der vorherige Wert wird dabei ï¿½berschrieben.
+	 * Setzt die Gesamtanzahl der in dieser Vorstellung zur Verfügung stehenden
+	 * Sitze. Der vorherige Wert wird dabei überschrieben.
 	 * 
 	 * @param sitzeGesamt
 	 *            the sitzeGesamt to set
 	 */
 	public final void setSitzeGesamt(int sitzeGesamt) {
-		throw new UnsupportedOperationException("Funktion derzeit nicht implementiert.");
+		// TODO Zu implementieren
 	}// setSitzeGesamt
 
 }// class

@@ -1,13 +1,13 @@
 package auffuehrungssystem;
+
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 
 public class Auffuehrungsort {
-	private Adresse adresse;
+	private Adresse anschrift;
 	private Collection<Vorstellung> vorstellungen;
 	private String name;
-	private Collection<Saal> saele;
 
 	/**
 	 * Konstruktor
@@ -17,9 +17,8 @@ public class Auffuehrungsort {
 	 */
 	public Auffuehrungsort(String name, Adresse adr) {
 		this.name = name;
-		this.adresse = adr;
+		this.anschrift = adr;
 		vorstellungen = new HashSet<Vorstellung>();
-		saele = new HashSet<Saal>();
 	}// Auffuehrungsort
 
 	/**
@@ -43,40 +42,26 @@ public class Auffuehrungsort {
 	}// ausgabeDerEinnahmen
 
 	/**
-	 * Erstellt anhand der ï¿½bergebenen Argumente ein Vorstellungsobjekt und
+	 * Erstellt anhand der übergebenen Argumente ein Vorstellungsobjekt und
 	 * verlinkt es entsprechend.
 	 * 
-	 * @param stueck
-	 * @param uhrzeit
+	 * @param stuecktyp
+	 * @param preis
+	 * @param sitze
+	 * @param film
 	 * @return
 	 */
-	public Vorstellung createVorstellung(Stueck stueck, String uhrzeit, Saal saal) {
-		Vorstellung v = new Vorstellung(stueck, this, uhrzeit, saal);
+	public Vorstellung createVorstellung(Stueck s, String uhrzeit) {
+		Vorstellung v = new Vorstellung(s, this, uhrzeit);
 		this.addVorstellung(v);
 		return v;
 	}// createVorstellung
 
 	/**
-	 * Erstellt anhand der ï¿½bergebenen Argumente ein Saalobjekt und
-	 * verlinkt es entsprechend.
-	 * 
-	 * @param bezeichnung
-	 * @param sonstiges
 	 * @return
 	 */
-	public Saal createSaal(String bezeichnung, String sonstiges, int reihen, int spalten, int logenReihen) {
-		Saal saal = new Saal(bezeichnung, sonstiges, reihen, spalten, logenReihen);
-		this.addSaal(saal);
-		return saal;
-	}// createSaal
-
-	
-
-	/**
-	 * @return
-	 */
-	public Adresse getAdresse() {
-		return adresse;
+	public Adresse getAnschrift() {
+		return anschrift;
 	}// getAnschrift
 
 	/**
@@ -87,7 +72,7 @@ public class Auffuehrungsort {
 	}// getName
 
 	/**
-	 * Liefert eine (read-only) Liste der zugehï¿½rigen Vorstellungen zurï¿½ck.
+	 * Liefert eine (read-only) Liste der zugehörigen Vorstellungen zurück.
 	 * 
 	 * @return
 	 */
@@ -126,10 +111,10 @@ public class Auffuehrungsort {
 	}// addVorstellung
 
 	/**
-	 * Entfernt eine Vorstellung zu diesem Auffï¿½hrungsort.<br>
+	 * Entfernt eine Vorstellung zu diesem Aufführungsort.<br>
 	 * <i>Achtung: Die Synchronisierung von Vorstellung erfolgt hier nicht, da
 	 * ansonsten ein inkonsistenter Zustand entstehen kann! Diese Methode ist
-	 * nur fï¿½r den Aufruf durch die Klasse {@link Vorstellung} vorgesehen.</i>
+	 * nur für den Aufruf durch die Klasse {@link Vorstellung} vorgesehen.</i>
 	 * 
 	 * @param v
 	 */
@@ -139,22 +124,5 @@ public class Auffuehrungsort {
 					"Vorstellung 'v' darf nicht null sein!");
 		vorstellungen.remove(v);
 	}// removeVorstellung
-
-	/**
-	 * @param s
-	 */
-	public void addSaal(Saal s) {
-		if (s == null)
-			throw new IllegalArgumentException(
-					"Saal 's' darf nicht null sein!");
-		saele.add(s);
-	}// addSaal
-
-	void removeSaal(Saal s) {
-		if (s == null)
-			throw new IllegalArgumentException(
-					"Saal 's' darf nicht null sein!");
-		saele.remove(s);
-	}// removeSaal
 
 }// class

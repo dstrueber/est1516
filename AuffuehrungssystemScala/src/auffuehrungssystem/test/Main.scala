@@ -1,8 +1,7 @@
-package auffuehrungssystem.main
+package auffuehrungssystem.test
 
 import auffuehrungssystem.Auffuehrungsort
 import auffuehrungssystem.Darsteller
-import auffuehrungssystem.Saal
 import auffuehrungssystem.Stueck
 import auffuehrungssystem.Vorstellung
 import auffuehrungssystem.Regisseur
@@ -12,7 +11,6 @@ import auffuehrungssystem.Stuecktyp
 object Main {
  def main(args: Array[String]): Unit = {
        val auffuehrungsort: Auffuehrungsort = new Auffuehrungsort("Gloria", "Bahnhofstra?e 22", "Marburg", 35037)
-    val centerSaal: Saal = auffuehrungsort.createSaal("Center-Saal", "", 30, 20, 10)
     val d1: Darsteller = new Darsteller("Schnabel", "Adolf")
     val d2: Darsteller = new Darsteller("Schreinemarkers", "Margot")
     val d3: Darsteller = new Darsteller("Fischer", "Ottfried")
@@ -26,8 +24,8 @@ object Main {
     stueck2.addDarsteller(d3)
     stueck2.addDarsteller(d2)
     stueck2.setRegisseur(r1)
-    val v1: Vorstellung = auffuehrungsort.createVorstellung(stueck1, "18Uhr", centerSaal)
-    val v2: Vorstellung = auffuehrungsort.createVorstellung(stueck2, "20Uhr", centerSaal)
+    val v1: Vorstellung = auffuehrungsort.createVorstellung(stueck1, "18Uhr")
+    val v2: Vorstellung = auffuehrungsort.createVorstellung(stueck2, "20Uhr")
     System.out.println(auffuehrungsort)
     System.out.println(v1.stueck + "\nEinnahmen: " + v1.liefereEinnahmen)
     System.out.println(v2.stueck + "\nEinnahmen: " + v2.liefereEinnahmen)

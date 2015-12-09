@@ -1,4 +1,5 @@
 package auffuehrungssystem;
+
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
@@ -31,7 +32,7 @@ public class Darsteller extends Beteiligter {
 	}// ausgabe
 
 	/**
-	 * Liefert eine (read-only) Liste der Filme zurï¿½ck, in der dieser Darsteller
+	 * Liefert eine (read-only) Liste der Filme zurück, in der dieser Darsteller
 	 * mitgespielt hat.
 	 * 
 	 * @return
@@ -41,7 +42,7 @@ public class Darsteller extends Beteiligter {
 	}// getFilme
 
 	/**
-	 * Fï¿½gt ein Stueck dem Darsteller hinzu.
+	 * Fügt ein Stueck dem Darsteller hinzu.
 	 * 
 	 * @param stueck
 	 */

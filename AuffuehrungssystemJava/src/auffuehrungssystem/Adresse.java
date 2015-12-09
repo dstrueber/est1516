@@ -1,4 +1,5 @@
 package auffuehrungssystem;
+
 public class Adresse {
 	private final String strasse, ort;
 	private final int plz;

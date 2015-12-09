@@ -1,4 +1,5 @@
 package auffuehrungssystem;
+
 abstract class Beteiligter {
 
 	/**
@@ -18,7 +19,7 @@ abstract class Beteiligter {
 	}// Beteiligter
 
 	/**
-	 * Ausgabe einer String-Reprï¿½sentation dieses Beteiligten auf der Console.
+	 * Ausgabe einer String-Repräsentation dieses Beteiligten auf der Console.
 	 */
 	abstract public void ausgabe();
 

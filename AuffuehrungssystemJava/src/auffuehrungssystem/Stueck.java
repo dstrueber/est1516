@@ -1,4 +1,5 @@
 package auffuehrungssystem;
+
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
@@ -32,7 +33,7 @@ public class Stueck {
 	}// Stueck
 
 	/**
-	 * Fï¿½gt einen Darsteller der Liste der Beteiligten hinzu.
+	 * Fügt einen Darsteller der Liste der Beteiligten hinzu.
 	 * 
 	 * @param darsteller
 	 */
@@ -58,7 +59,7 @@ public class Stueck {
 	}// removeDarsteller
 
 	/**
-	 * Liefert eine (read-only) Liste der beteiligten Darsteller zurï¿½ck.
+	 * Liefert eine (read-only) Liste der beteiligten Darsteller zurück.
 	 * 
 	 * @return
 	 */
@@ -88,7 +89,7 @@ public class Stueck {
 	}// getRegisseur
 
 	/**
-	 * Liefert eine (read-only) Liste der zugehï¿½rigen Vorstellungen zurï¿½ck.
+	 * Liefert eine (read-only) Liste der zugehörigen Vorstellungen zurück.
 	 * 
 	 * @return
 	 */
@@ -97,7 +98,7 @@ public class Stueck {
 	}// getVorstellungen
 
 	/**
-	 * Fï¿½gt eine Vorstellung zu diesem Stï¿½ck hinzu.
+	 * Fügt eine Vorstellung zu diesem Stück hinzu.
 	 * 
 	 * @param v
 	 */
@@ -110,10 +111,10 @@ public class Stueck {
 	}// addVorstellung
 
 	/**
-	 * Entfernt eine Vorstellung zu diesem Stï¿½ck.<br>
+	 * Entfernt eine Vorstellung zu diesem Stück.<br>
 	 * <i>Achtung: Die Synchronisierung von Vorstellung erfolgt hier nicht, da
 	 * ansonsten ein inkonsistenter Zustand entstehen kann! Diese Methode ist
-	 * nur fï¿½r den Aufruf durch die Klasse {@link Vorstellung} vorgesehen.</i>
+	 * nur für den Aufruf durch die Klasse {@link Vorstellung} vorgesehen.</i>
 	 * 
 	 * @param v
 	 */

@@ -1,4 +1,5 @@
 package auffuehrungssystem;
+
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
@@ -39,7 +40,7 @@ public class Regisseur extends Beteiligter {
 
 	/**
 	 * 
-	 * Liefert eine (read-only) Liste der Filme zurï¿½ck, in der dieser Beteiligte
+	 * Liefert eine (read-only) Liste der Filme zurück, in der dieser Beteiligte
 	 * der Regisseur war.
 	 * 
 	 * @return
@@ -49,7 +50,7 @@ public class Regisseur extends Beteiligter {
 	}// getGeleiteteStuecke
 
 	/**
-	 * Fï¿½gt ein Stueck dem Regisseur hinzu. Der vorherige Regisseur des Stï¿½cks wird gegen diesen ausgetauscht.
+	 * Fügt ein Stueck dem Regisseur hinzu. Der vorherige Regisseur des Stücks wird gegen diesen ausgetauscht.
 	 * 
 	 * @param stueck
 	 */
@@ -64,7 +65,7 @@ public class Regisseur extends Beteiligter {
 	 * Entfernt die Verbindung zwischen diesem Regisseur und dem Stueck.<br>
 	 * <i>Achtung: Die Synchronisierung von Stueck erfolgt hier nicht, da
 	 * ansonsten ein inkonsistenter Zustand entstehen kann! Diese Methode ist
-	 * nur fï¿½r den Aufruf durch die Klasse {@link Stueck} vorgesehen.</i>
+	 * nur für den Aufruf durch die Klasse {@link Stueck} vorgesehen.</i>
 	 * 
 	 * @param stueck
 	 */
@@ -72,7 +73,7 @@ public class Regisseur extends Beteiligter {
 		if (stueck == null)
 			throw new IllegalArgumentException("'stueck' darf nicht null sein!");
 		stuecke.remove(stueck);
-		// Hier erfolgt keine Rï¿½ck-Synchronisierung!
+		// Hier erfolgt keine Rück-Synchronisierung!
 	}// removeStueck
 
 }// class

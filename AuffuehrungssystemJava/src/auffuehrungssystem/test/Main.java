@@ -1,9 +1,8 @@
-package auffuerhungssystem.main;
+package auffuehrungssystem.test;
 
 import auffuehrungssystem.Auffuehrungsort;
 import auffuehrungssystem.Darsteller;
 import auffuehrungssystem.Regisseur;
-import auffuehrungssystem.Saal;
 import auffuehrungssystem.Stueck;
 import auffuehrungssystem.Stuecktyp;
 import auffuehrungssystem.Vorstellung;
@@ -12,7 +11,6 @@ public class Main {
 	public static void main(String[] args) {
 
 		Auffuehrungsort auffuehrungsort = new Auffuehrungsort("Gloria", "Bahnhofstra�e 22", "Marburg", 35037);
-		Saal centerSaal = auffuehrungsort.createSaal("Center-Saal", "", 30, 20, 10);
 
 		Darsteller d1 = new Darsteller("Schnabel", "Adolf");
 		Darsteller d2 = new Darsteller("Schreinemarkers", "Margot");
@@ -30,8 +28,8 @@ public class Main {
 		stueck2.addDarsteller(d2);
 		stueck2.setRegisseur(r1);
 
-		Vorstellung v1 = auffuehrungsort.createVorstellung(stueck1, "18Uhr", centerSaal);
-		Vorstellung v2 = auffuehrungsort.createVorstellung(stueck2, "20Uhr", centerSaal);
+		Vorstellung v1 = auffuehrungsort.createVorstellung(stueck1, "18Uhr");
+		Vorstellung v2 = auffuehrungsort.createVorstellung(stueck2, "20Uhr");
 
 		System.out.println(auffuehrungsort);
 		System.out.println(v1.getStueck() + "\nEinnahmen: " + v1.liefereEinnahmen());
